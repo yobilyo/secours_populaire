@@ -5,9 +5,18 @@
 	}else if (isset($_SESSION['droits']))
 	{
         $leDon=null;
+
         $unControleur->setTable ("membre");
-        $tab=array("idmembre", "nom", "prenom");
+        $tab=array("idmembre", "nom", "prenom", "droits");
         $lesMembres = $unControleur->selectAll ($tab); 
+
+        // on suppose que l'email est un identifiant unique pour chaque user
+        /*$membreConnecte = array();
+        foreach ($lesMembres as $unMembre) {
+            if ($unMembre['email'] == $_SESSION['email']) {
+                $membreConnecte = $unMembre;
+            }
+        }*/
 
         $unControleur->setTable ("projet");
         $tab=array("idprojet", "description");

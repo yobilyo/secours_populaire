@@ -28,7 +28,7 @@
             }
             if (isset($_POST['seconnecter']))
             {
-                $unControleur->setTable ("user");
+                $unControleur->setTable ("membre");
                 $tab=array("email"=>$_POST['email'], "mdp"=>$_POST['mdp']); 
                 $unUSer = $unControleur->selectWhere ($tab);
                 if ($unUSer == null || $unUSer == false )

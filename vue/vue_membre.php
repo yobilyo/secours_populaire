@@ -8,7 +8,8 @@
 				<th> Id </th>
 				<th> Nom </th> <th> Prenom</th>
 				<th> Adresse</th> <th> Tel</th> 
-				<th> Email </th> <th> Mot de passe </th> <th>Operations</th>
+				<th> Email </th> <th> Mot de passe </th> <th> Droits </th>
+				<th>Operations</th>
 			</tr>
 		</thead>
 
@@ -23,6 +24,7 @@
 						<td>".$unMembre['tel']." </td>
 						<td>".$unMembre['email']." </td>
 						<td>".$unMembre['mdp']." </td>
+						<td>".$unMembre['droits']."</td>
 						<td>
 							<a href='index.php?page=1&action=sup&idmembre=".$unMembre['idmembre']."'>
 							<img src ='images/sup.jpg' height='30' witdh='30'> </a>

@@ -1,7 +1,7 @@
 <?php
     $unControleur = new Controleur($serveur, $bdd, $user, $mdp);
     $uneInscription=null;
-    $unControleur->setTable ("user");
+    $unControleur->setTable ("membre");
     
     $tab=array("*");
     
@@ -10,7 +10,7 @@
     if (isset($_POST['sinscrire'])){
 
           $droits = "user";
-          $tab=array("nom"=>$_POST['nom'],"prenom"=>$_POST['prenom'],"email"=>$_POST['email'], "mdp"=>$_POST['mdp'], "droits"=>$droits);    
+          $tab=array("nom"=>$_POST['nom'],"prenom"=>$_POST['prenom'], "adresse"=>$_POST['adresse'], "tel"=>$_POST['tel'], "email"=>$_POST['email'], "mdp"=>$_POST['mdp'], "droits"=>$droits);    
           $unControleur->insert($tab);
       }
       if (isset($_POST['sinscrire'])){

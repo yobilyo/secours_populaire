@@ -29,7 +29,7 @@
 
             if (isset($_POST['modifier'])){
                 $tab=array("nom"=>$_POST['nom'], "prenom"=>$_POST['prenom'],
-                            "adresse"=>$_POST['adresse'],"tel"=>$_POST['tel'], "email"=>$_POST['email'], "mdp"=>$_POST['mdp']);
+                            "adresse"=>$_POST['adresse'],"tel"=>$_POST['tel'], "email"=>$_POST['email'], "mdp"=>$_POST['mdp'], "droits"=>$_POST['droits']);
                 $where =array("idmembre"=>$idmembre);
 
                 $unControleur->update($tab, $where);
@@ -38,7 +38,7 @@
 
             if (isset($_POST['valider'])){
                 $tab=array("nom"=>$_POST['nom'], "prenom"=>$_POST['prenom'],
-                            "adresse"=>$_POST['adresse'],"tel"=>$_POST['tel'], "email"=>$_POST['email'], "mdp"=>$_POST['mdp']);
+                            "adresse"=>$_POST['adresse'],"tel"=>$_POST['tel'], "email"=>$_POST['email'], "mdp"=>$_POST['mdp'], "droits"=>$_POST['droits']);
                 $unControleur->insert($tab);
             }
 

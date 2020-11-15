@@ -46,6 +46,22 @@
 	  </div>
 	  <br/>
 
+	  Votre adresse
+	  <div class='form-group'>
+		<div class='col-sm-8'>
+		  <input type="text" name="adresse" class='form-control'>
+		</div>
+	  </div>
+	  <br/>
+
+	  Votre téléphone
+	  <div class='form-group'>
+		<div class='col-sm-8'>
+		  <input type="text" name="tel" class='form-control'>
+		</div>
+	  </div>
+	  <br/>
+
 	  Votre email *
 	  <div class='form-group'>
 		<div class='col-sm-8'>
