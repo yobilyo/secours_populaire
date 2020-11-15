@@ -30,13 +30,16 @@
             {
                 $unControleur->setTable ("membre");
                 $tab=array("email"=>$_POST['email'], "mdp"=>$_POST['mdp']); 
-                $unUSer = $unControleur->selectWhere ($tab);
-                if ($unUSer == null || $unUSer == false )
+                $membreConnecte = $unControleur->selectWhere ($tab);
+                if ($membreConnecte == null || $membreConnecte == false )
                 {
                     echo "<br /> Erreur de connexion, Veuillez vérifier vos identifiants";
-                }else if (isset($unUSer['email'])){
-                    $_SESSION['email'] = $unUSer['email']; 
-                    $_SESSION['droits'] = $unUSer['droits'];
+                }else if (isset($membreConnecte['email'])){
+                    $_SESSION['email'] = $membreConnecte['email']; 
+                    $_SESSION['droits'] = $membreConnecte['droits'];
+                    $_SESSION['idmembre'] = $membreConnecte['idmembre'];
+                    $_SESSION['nom'] = $membreConnecte['nom'];
+                    $_SESSION['prenom'] = $membreConnecte['prenom'];
                     header("Location: index.php");
                 }
             }

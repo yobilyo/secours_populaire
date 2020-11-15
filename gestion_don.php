@@ -4,19 +4,12 @@
 		echo "ERREUR 404, page non identifiée ";
 	}else if (isset($_SESSION['droits']))
 	{
+        var_dump($_SESSION);
         $leDon=null;
 
         $unControleur->setTable ("membre");
         $tab=array("idmembre", "nom", "prenom", "droits");
         $lesMembres = $unControleur->selectAll ($tab); 
-
-        // on suppose que l'email est un identifiant unique pour chaque user
-        /*$membreConnecte = array();
-        foreach ($lesMembres as $unMembre) {
-            if ($unMembre['email'] == $_SESSION['email']) {
-                $membreConnecte = $unMembre;
-            }
-        }*/
 
         $unControleur->setTable ("projet");
         $tab=array("idprojet", "description");
@@ -56,6 +49,7 @@
         require_once("vue/vue_insert_don.php"); 
 
         if (isset($_POST['valider'])){
+            var_dump($_POST);
             $tab=array("idmembre"=>$_POST['idmembre'], "idprojet"=>$_POST['idprojet'],
                 "somme"=>$_POST['somme'],"appreciation"=>$_POST['appreciation'], "datedon"=>$_POST['datedon']);
             $unControleur->insert($tab);

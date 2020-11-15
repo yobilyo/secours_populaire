@@ -1,22 +1,32 @@
 <h2> Ajout d'un Don </h2>
+<?php var_dump($_SESSION); ?>
 <form method ="post" action ="">
 	<table>
 		<tr> 
-		<td> Membre : </td> 
-					
-				<td> 
-				<select name ="idmembre">
-						 <?php
-						 	foreach ($lesMembres as $unMembre) {
-								 echo "<option value ='".$unMembre['idmembre']."'>".$unMembre['nom']."  ".$unMembre['prenom']."</option>";
+		<td> Membre : </td> 	
+			<td> 
+				<?php
+					if ($_SESSION['droits'] == "admin") {
+						echo "
+						<select name ='idmembre'>";
+							foreach ($lesMembres as $unMembre) {
+								$fullNameUnMembre = $unMembre['nom']."  ".$unMembre['prenom'];
+								echo "<option value ='".$unMembre['idmembre']."'>".$fullNameUnMembre."</option>";
 								
-						 	}
-						 ?>
-					</select>
-				</td>
+							}
+						echo "</select>";
+					} else {
+						$fullNameSession = $_SESSION['nom']."  ".$_SESSION['prenom'];
+						// nom du membre visible dans la box
+						echo "<option type='text' name='nommembre' readonly>".$fullNameSession."</option>";
+						// post de l'idmembre dans le formulaire (invisible)
+						echo "<input type='hidden' name='idmembre' value ='".$_SESSION['idmembre']."'>";
+					}
+				?>
+			</td>
 		</tr>
 		<tr>
-	<td> Description du projet : </td> 
+		<td> Description du projet : </td> 
 		<td>		 <select name ="idprojet">
 						 <?php
 						 	foreach ($lesProjets as $unProjet) {
