@@ -18,7 +18,7 @@
 					} else {
 						$fullNameSession = $_SESSION['nom']."  ".$_SESSION['prenom'];
 						// nom du membre visible dans la box
-						echo "<option type='text' name='nommembre' readonly>".$fullNameSession."</option>";
+						echo "<div>".$fullNameSession."</div>";
 						// post de l'idmembre dans le formulaire (invisible)
 						echo "<input type='hidden' name='idmembre' value ='".$_SESSION['idmembre']."'>";
 					}
