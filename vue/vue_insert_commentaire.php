@@ -4,8 +4,8 @@
 	<table>
 	<?php //var_dump($unCommentaire); ?>
         <tr> 
-			<td> Date du commentaire : </td> 
-			<td> <input type="date" name="datecomment" value= <?php echo ($unCommentaire != null ? $unCommentaire['datecomment'] : "") ?> ></td>
+			<td> Date du commentaire :  </td> 
+			<td>  <?php echo date("yy.m.d"); ?>  </td>
 		</tr>
 		<tr> 
 			<td> Contenu : </td> 
@@ -30,15 +30,25 @@
 		</tr>
 
 		<tr> 
-				<td> Nom du membre : </td> 
-				<td> <select name ="idmembre">
-					 <?php
-					 	/* TODO lors du modifier, actualiser valuer */
-					 	foreach ($lesMembres as $unMembre) {
-					 		echo "<option value ='".$unMembre['idmembre']."'>".$unMembre['nom']." " .$unMembre['prenom']."</option>";
-					 	}
-					 ?>
-				</select>
+		<td> Membre : </td> 	
+			<td> 
+				<?php
+					if ($_SESSION['droits'] == "admin") {
+						echo "
+						<select name ='idmembre'>";
+							foreach ($lesMembres as $unMembre) {
+								$fullNameUnMembre = $unMembre['nom']."  ".$unMembre['prenom'];
+								echo "<option value ='".$unMembre['idmembre']."'>".$fullNameUnMembre."</option>";
+														}
+						echo "</select>";
+					} else {
+						$fullNameSession = $_SESSION['nom']."  ".$_SESSION['prenom'];
+						// nom du membre visible dans la box
+						echo "<option type='text' name='nommembre' readonly>".$fullNameSession."</option>";
+						// post de l'idmembre dans le formulaire (invisible)
+						echo "<input type='hidden' name='idmembre' value ='".$_SESSION['idmembre']."'>";
+					}
+				?>
 			</td>
 			</tr>
 

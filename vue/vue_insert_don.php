@@ -1,5 +1,5 @@
 <h2> Ajout d'un Don </h2>
-<?php var_dump($_SESSION); ?>
+
 <form method ="post" action ="">
 	<table>
 		<tr> 

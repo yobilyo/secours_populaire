@@ -35,7 +35,8 @@
   
 
     if (isset($_POST['modifier'])){
-        $tab=array("idcomment"=>$_POST['idcomment'],"datecomment"=>$_POST['datecomment'], "contenu" =>$_POST['contenu'],  "note"=>$_POST['note'], "idprojet"=>$_POST['idprojet'],"idmembre"=>$_POST['idmembre'], );
+        $date = date("yy.m.d");
+        $tab=array("idcomment"=>$_POST['idcomment'],"datecomment"=>$date, "contenu" =>$_POST['contenu'],  "note"=>$_POST['note'], "idprojet"=>$_POST['idprojet'],"idmembre"=>$_POST['idmembre'], );
         $where =array("idcomment"=>$idcomment);
 
         $unControleur->update($tab, $where);
@@ -44,8 +45,8 @@
 
 
 	if (isset($_POST['valider'])){
-
-        $tab=array("datecomment"=>$_POST['datecomment'], "contenu" =>$_POST['contenu'],  "note"=>$_POST['note'],"idprojet"=>$_POST['idprojet'], "idmembre"=>$_POST['idmembre']    ); //modification de id projet et membre
+        $date = date("yy.m.d");
+        $tab=array("datecomment"=>$date, "contenu" =>$_POST['contenu'],  "note"=>$_POST['note'],"idprojet"=>$_POST['idprojet'], "idmembre"=>$_POST['idmembre']    ); //modification de id projet et membre
         
 		$unControleur->insert($tab);
 	}
